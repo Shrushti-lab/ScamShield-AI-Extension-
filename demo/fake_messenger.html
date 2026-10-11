@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Messenger — Mike Johnson (ScamShield Demo)</title>
+  <link rel="stylesheet" href="/portal/css/styles.css">
+  <style>
+    body {
+      background: #f0f2f5;
+      font-family: 'Inter', system-ui, sans-serif;
+      margin: 0;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .demo-bar {
+      width: 100%;
+      max-width: 800px;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 12px 18px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .demo-badge {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      background: #eff6ff;
+      color: #2563eb;
+      border-radius: 6px;
+    }
+    .btn-inject {
+      font-size: 11.5px;
+      font-weight: 600;
+      padding: 6px 12px;
+      background: #f1f5f9;
+      color: #334155;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .btn-inject:hover {
+      background: #e2e8f0;
+      color: #0f172a;
+    }
+    .messenger-container {
+      width: 100%;
+      max-width: 800px;
+      background: #ffffff;
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      height: 600px;
+    }
+    .chat-header {
+      padding: 14px 20px;
+      border-bottom: 1px solid #e2e8f0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: #ffffff;
+    }
+    .chat-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #e2e8f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: #475569;
+    }
+    .chat-header-info h2 {
+      margin: 0;
+      font-size: 15px;
+      font-weight: 700;
+      color: #0f172a;
+    }
+    .chat-header-info span {
+      font-size: 12px;
+      color: #10b981;
+    }
+    .chat-messages {
+      flex: 1;
+      padding: 20px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      background: #f8fafc;
+    }
+    .msg-row {
+      display: flex;
+      flex-direction: column;
+      max-width: 75%;
+    }
+    .msg-row.incoming {
+      align-self: flex-start;
+    }
+    .msg-row.outgoing {
+      align-self: flex-end;
+    }
+    .x1n2onr6 {
+      padding: 10px 14px;
+      border-radius: 18px;
+      font-size: 13.5px;
+      line-height: 1.45;
+    }
+    .incoming .x1n2onr6 {
+      background: #ffffff;
+      color: #0f172a;
+      border: 1px solid #e2e8f0;
+      border-bottom-left-radius: 4px;
+    }
+    .outgoing .x1n2onr6 {
+      background: #2563eb;
+      color: #ffffff;
+      border-bottom-right-radius: 4px;
+    }
+    .msg-time {
+      font-size: 10px;
+      color: #94a3b8;
+      margin-top: 4px;
+      padding: 0 4px;
+    }
+    .chat-input-bar {
+      padding: 14px 20px;
+      border-top: 1px solid #e2e8f0;
+      background: #ffffff;
+      display: flex;
+      gap: 10px;
+    }
+    .chat-input {
+      flex: 1;
+      padding: 10px 14px;
+      border: 1px solid #cbd5e1;
+      border-radius: 20px;
+      font-size: 13px;
+      outline: none;
+    }
+    .chat-send {
+      padding: 8px 18px;
+      background: #2563eb;
+      color: #fff;
+      border: none;
+      border-radius: 20px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="demo-bar">
+    <span class="demo-badge">Messenger Demo</span>
+    <span style="font-size:12px; color:#64748b; margin-right:auto;">Target: @mike_johnson_382</span>
+    <button class="btn-inject" id="btnInjectOTP">⚡ Inject 6-Digit OTP Theft</button>
+    <button class="btn-inject" id="btnInjectZelle">⚡ Inject Zelle Pivot</button>
+    <button class="btn-inject" id="btnInjectSafe">✓ Normal Message</button>
+  </div>
+
+  <div class="messenger-container">
+    <div class="chat-header">
+      <div class="chat-avatar">MJ</div>
+      <div class="chat-header-info">
+        <h2><span class="chat-header-name">Mike Johnson</span></h2>
+        <span>Active Now</span>
+      </div>
+    </div>
+
+    <div class="chat-messages" id="messagesList">
+      <div class="msg-row incoming" role="row">
+        <div class="x1n2onr6 message-bubble-text">Hey how are you doing? Long time no see!</div>
+        <div class="msg-time">2:14 PM</div>
+      </div>
+      <div class="msg-row outgoing" role="row">
+        <div class="x1n2onr6 message-bubble-text">Hey Mike! Doing good, how have you been?</div>
+        <div class="msg-time">2:15 PM</div>
+      </div>
+      <div class="msg-row incoming" role="row">
+        <div class="x1n2onr6 message-bubble-text">Hey I accidentally typed your number and you got a Google Voice code, can you send it to me real quick?</div>
+        <div class="msg-time">2:16 PM</div>
+      </div>
+    </div>
+
+    <div class="chat-input-bar">
+      <input type="text" class="chat-input" id="chatInput" placeholder="Type a message...">
+      <button class="chat-send" id="btnSend">Send</button>
+    </div>
+  </div>
+
+  <!-- Standalone extension scripts loaded for full offline demonstration -->
+  <script src="/extension/ui/chime.js"></script>
+  <script src="/extension/ui/hud.js"></script>
+  <script src="/extension/content/common.js"></script>
+  <script src="/extension/content/facebook.js"></script>
+
+  <script>
+    const list = document.getElementById('messagesList');
+    function appendMsg(text, isIncoming = true) {
+      const row = document.createElement('div');
+      row.className = `msg-row ${isIncoming ? 'incoming' : 'outgoing'}`;
+      row.setAttribute('role', 'row');
+      row.innerHTML = `
+        <div class="x1n2onr6 message-bubble-text">${text}</div>
+        <div class="msg-time">Just now</div>
+      `;
+      list.appendChild(row);
+      list.scrollTop = list.scrollHeight;
+    }
+
+    document.getElementById('btnInjectOTP').addEventListener('click', () => {
+      appendMsg('URGENT: Please send the 6-digit verification code you received right now or my account will be locked!', true);
+    });
+
+    document.getElementById('btnInjectZelle').addEventListener('click', () => {
+      appendMsg('Can you send me a $200 deposit via Zelle or CashApp right now so I can hold this for you?', true);
+    });
+
+    document.getElementById('btnInjectSafe').addEventListener('click', () => {
+      appendMsg('Sure, let us catch up for lunch this Saturday at the downtown cafe!', true);
+    });
+
+    document.getElementById('btnSend').addEventListener('click', () => {
+      const input = document.getElementById('chatInput');
+      if (input.value.trim()) {
+        appendMsg(input.value.trim(), false);
+        input.value = '';
+      }
+    });
+  </script>
+</body>
+</html>

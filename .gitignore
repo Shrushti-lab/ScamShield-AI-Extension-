@@ -1,0 +1,31 @@
+﻿# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.mypy_cache/
+*.egg-info/
+dist/
+build/
+venv/
+.venv/
+env/
+
+# SQLite database (recreated at startup on Render)
+*.db
+*.sqlite3
+
+# ML artifacts (large binaries)
+ml/artifacts/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Secrets
+.env
+*.env

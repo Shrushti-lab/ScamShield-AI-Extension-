@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marketplace — iPhone 15 Pro Max (ScamShield Demo)</title>
+  <style>
+    body {
+      background: #f0f2f5;
+      font-family: 'Inter', system-ui, sans-serif;
+      margin: 0;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .demo-bar {
+      width: 100%;
+      max-width: 840px;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 12px 18px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .demo-badge {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      background: #eff6ff;
+      color: #2563eb;
+      border-radius: 6px;
+    }
+    .btn-inject {
+      font-size: 11.5px;
+      font-weight: 600;
+      padding: 6px 12px;
+      background: #f1f5f9;
+      color: #334155;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .btn-inject:hover {
+      background: #e2e8f0;
+    }
+    .marketplace-feed {
+      width: 100%;
+      max-width: 840px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+    .listing-card {
+      background: #ffffff;
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .listing-img-box {
+      width: 100%;
+      height: 220px;
+      background: #e2e8f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      color: #64748b;
+    }
+    .listing-body {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .listing-price {
+      font-size: 20px;
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: 4px;
+    }
+    .listing-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: #1e293b;
+      margin-bottom: 8px;
+    }
+    .listing-desc {
+      font-size: 13px;
+      color: #64748b;
+      line-height: 1.45;
+      margin-bottom: 12px;
+    }
+    .seller-info {
+      margin-top: auto;
+      font-size: 11.5px;
+      color: #94a3b8;
+      border-top: 1px solid #f1f5f9;
+      padding-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="demo-bar">
+    <span class="demo-badge">Marketplace Demo</span>
+    <span style="font-size:12px; color:#64748b; margin-right:auto;">Target: Listing Price Deviations & Courier Pretexts</span>
+    <button class="btn-inject" id="btnInjectCourier">⚡ Inject Courier Advance Trap</button>
+    <button class="btn-inject" id="btnInjectSafeMkt">✓ Safe Oak Bookshelf</button>
+  </div>
+
+  <div class="marketplace-feed" id="mktFeed">
+    <!-- Severe Anomaly Listing -->
+    <div class="listing-card" data-testid="marketplace_feed_item">
+      <div class="listing-img-box">📱</div>
+      <div class="listing-body">
+        <div class="listing-price" data-testid="marketplace_listing_price">$150</div>
+        <div class="listing-title" data-testid="marketplace_listing_title">iPhone 15 Pro Max — Brand New in Box</div>
+        <div class="listing-desc">
+          Brand new sealed in box. I am out of town right now. My husband will deliver via courier, pay shipping fee upfront via Zelle.
+        </div>
+        <div class="seller-info">
+          Seller: <span class="seller-name">Alex Johnson</span> • Joined this week • 0 ratings
+        </div>
+      </div>
+    </div>
+
+    <!-- Moderate PS5 Anomaly -->
+    <div class="listing-card" data-testid="marketplace_feed_item">
+      <div class="listing-img-box">🎮</div>
+      <div class="listing-body">
+        <div class="listing-price" data-testid="marketplace_listing_price">$120</div>
+        <div class="listing-title" data-testid="marketplace_listing_title">Sony PS5 Digital Edition Console</div>
+        <div class="listing-desc">
+          Works perfectly with 2 controllers. Moving abroad soon. Let us continue on WhatsApp, I do not check Facebook messages often.
+        </div>
+        <div class="seller-info">
+          Seller: <span class="seller-name">Gamer Deals 99</span> • Joined last month
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Standalone extension scripts -->
+  <script src="/extension/ui/chime.js"></script>
+  <script src="/extension/ui/hud.js"></script>
+  <script src="/extension/content/common.js"></script>
+  <script src="/extension/content/marketplace.js"></script>
+
+  <script>
+    const feed = document.getElementById('mktFeed');
+    document.getElementById('btnInjectCourier').addEventListener('click', () => {
+      const card = document.createElement('div');
+      card.className = 'listing-card';
+      card.setAttribute('data-testid', 'marketplace_feed_item');
+      card.innerHTML = `
+        <div class="listing-img-box">💻</div>
+        <div class="listing-body">
+          <div class="listing-price" data-testid="marketplace_listing_price">$200</div>
+          <div class="listing-title" data-testid="marketplace_listing_title">MacBook Pro 16-inch M3 Max</div>
+          <div class="listing-desc">
+            Emergency sale: $200! My agent will deliver via FedEx courier. Pay $50 deposit right now via CashApp to secure the parcel.
+          </div>
+          <div class="seller-info">Seller: QuickSales • Just joined</div>
+        </div>
+      `;
+      feed.prepend(card);
+    });
+
+    document.getElementById('btnInjectSafeMkt').addEventListener('click', () => {
+      const card = document.createElement('div');
+      card.className = 'listing-card';
+      card.setAttribute('data-testid', 'marketplace_feed_item');
+      card.innerHTML = `
+        <div class="listing-img-box">📚</div>
+        <div class="listing-body">
+          <div class="listing-price" data-testid="marketplace_listing_price">$80</div>
+          <div class="listing-title" data-testid="marketplace_listing_title">Solid Oak Bookshelf</div>
+          <div class="listing-desc">
+            Clean oak bookshelf in great condition. Available for local pickup anytime this weekend. Cash on pickup preferred.
+          </div>
+          <div class="seller-info">Seller: Sarah Miller • Joined 2018 • 4.9 stars (42 reviews)</div>
+        </div>
+      `;
+      feed.prepend(card);
+    });
+  </script>
+</body>
+</html>

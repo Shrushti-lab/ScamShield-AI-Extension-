@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PayPa1 Secure Checkout — CardGuard Demo</title>
+  <style>
+    body {
+      background: #f8fafc;
+      font-family: 'Inter', system-ui, sans-serif;
+      margin: 0;
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: #0f172a;
+    }
+    .demo-bar {
+      width: 100%;
+      max-width: 520px;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 12px 18px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .demo-badge {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      background: #fef2f2;
+      color: #dc2626;
+      border-radius: 6px;
+    }
+    .checkout-card {
+      width: 100%;
+      max-width: 520px;
+      background: #ffffff;
+      border-radius: 14px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 10px 25px -5px rgba(0,0,0,0.06);
+      padding: 28px;
+      box-sizing: border-box;
+    }
+    .fake-domain-badge {
+      font-size: 11.5px;
+      color: #dc2626;
+      background: #fee2e2;
+      border: 1px solid #fca5a5;
+      padding: 6px 12px;
+      border-radius: 6px;
+      margin-bottom: 20px;
+      font-family: monospace;
+    }
+    h2 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    p {
+      font-size: 13px;
+      color: #64748b;
+      margin-bottom: 20px;
+    }
+    .form-group {
+      margin-bottom: 14px;
+    }
+    label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      color: #334155;
+      margin-bottom: 4px;
+    }
+    input {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      font-size: 13.5px;
+      box-sizing: border-box;
+      outline: none;
+    }
+    input:focus {
+      border-color: #2563eb;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .btn-submit {
+      width: 100%;
+      padding: 12px;
+      background: #0070ba;
+      color: #ffffff;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .btn-submit:hover {
+      background: #005ea6;
+    }
+    .privacy-guarantee {
+      margin-top: 20px;
+      padding: 12px;
+      background: #f1f5f9;
+      border-radius: 8px;
+      font-size: 11.5px;
+      color: #475569;
+      line-height: 1.45;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="demo-bar">
+    <span class="demo-badge">CardGuard Demo</span>
+    <span style="font-size:12px; color:#64748b;">Deceptive Checkout Form Traps</span>
+  </div>
+
+  <div class="checkout-card">
+    <div class="fake-domain-badge">
+      Lookalike Host: paypa1-secure-checkout.xyz (Unverified Merchant)
+    </div>
+
+    <h2>Complete Your Purchase ($89.99)</h2>
+    <p>Please enter your payment credentials to verify your billing information.</p>
+
+    <form id="checkoutForm">
+      <div class="form-group">
+        <label>Cardholder Name</label>
+        <input type="text" name="cardholder_name" placeholder="John Doe">
+      </div>
+
+      <div class="form-group">
+        <label>Credit Card Number</label>
+        <input type="text" name="cardnumber" autocomplete="cc-number" placeholder="4532 •••• •••• ••••">
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Expiration Date</label>
+          <input type="text" name="exp-date" autocomplete="cc-exp" placeholder="MM/YY">
+        </div>
+        <div class="form-group">
+          <label>CVV / CVC</label>
+          <input type="password" name="cvv" autocomplete="cc-csc" placeholder="•••" maxlength="4">
+        </div>
+      </div>
+
+      <button type="submit" class="btn-submit" id="btnPay">Pay $89.99 via Card</button>
+    </form>
+
+    <div class="privacy-guarantee">
+      <strong>Zero-Access Proof:</strong> ScamShield CardGuard never reads the keystrokes or <code>.value</code> property of card inputs. It only scans DOM field attributes (names & autocompletes) alongside domain reputation metrics to block exfiltration.
+    </div>
+  </div>
+
+  <!-- Standalone extension scripts -->
+  <script src="/extension/ui/chime.js"></script>
+  <script src="/extension/ui/hud.js"></script>
+  <script src="/extension/content/common.js"></script>
+  <script src="/extension/content/cardguard.js"></script>
+
+</body>
+</html>

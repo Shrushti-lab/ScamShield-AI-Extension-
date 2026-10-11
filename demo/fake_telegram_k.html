@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Telegram Web K — Crypto Airdrop Bot (ScamShield Demo)</title>
+  <style>
+    body {
+      background: #0f141c;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      margin: 0;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: #e2e8f0;
+    }
+    .demo-bar {
+      width: 100%;
+      max-width: 800px;
+      background: #18222d;
+      border: 1px solid #242f3d;
+      border-radius: 10px;
+      padding: 12px 18px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .demo-badge {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      background: #1e3a5f;
+      color: #38bdf8;
+      border-radius: 6px;
+    }
+    .btn-inject {
+      font-size: 11.5px;
+      font-weight: 600;
+      padding: 6px 12px;
+      background: #242f3d;
+      color: #cbd5e1;
+      border: 1px solid #334155;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .btn-inject:hover {
+      background: #334155;
+      color: #fff;
+    }
+    .tg-container {
+      width: 100%;
+      max-width: 800px;
+      background: #0e1621;
+      border-radius: 12px;
+      border: 1px solid #242f3d;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+      display: flex;
+      flex-direction: column;
+      height: 600px;
+      overflow: hidden;
+    }
+    .im-page-chat-header {
+      padding: 14px 20px;
+      background: #17212b;
+      border-bottom: 1px solid #242f3d;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .tg-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #2b5278;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: #fff;
+    }
+    .tg-header-info h3 {
+      margin: 0;
+      font-size: 15px;
+      font-weight: 600;
+      color: #f8fafc;
+    }
+    .tg-header-info span {
+      font-size: 12px;
+      color: #64748b;
+    }
+    .tg-messages-box {
+      flex: 1;
+      padding: 20px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      background: #0e1621;
+    }
+    .tg-bubble {
+      max-width: 75%;
+      padding: 10px 14px;
+      border-radius: 12px;
+      font-size: 13.5px;
+      line-height: 1.45;
+    }
+    .tg-bubble.incoming {
+      align-self: flex-start;
+      background: #182533;
+      color: #f1f5f9;
+      border-bottom-left-radius: 2px;
+    }
+    .tg-bubble.outgoing {
+      align-self: flex-end;
+      background: #2b5278;
+      color: #ffffff;
+      border-bottom-right-radius: 2px;
+    }
+    .tg-time {
+      font-size: 10px;
+      color: #64748b;
+      margin-top: 4px;
+      text-align: right;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="demo-bar">
+    <span class="demo-badge">Telegram /k/ Demo</span>
+    <span style="font-size:12px; color:#94a3b8; margin-right:auto;">Target: @CryptoAirdropAdmin</span>
+    <button class="btn-inject" id="btnInjectSeed">⚡ 12-Word Seed Harvest</button>
+    <button class="btn-inject" id="btnInjectROI">⚡ Guaranteed 5% Daily ROI</button>
+    <button class="btn-inject" id="btnInjectINR">⚡ INR ₹50,000 Prize</button>
+  </div>
+
+  <div class="tg-container">
+    <div class="im-page-chat-header">
+      <div class="tg-avatar">CA</div>
+      <div class="tg-header-info">
+        <h3 class="user-title">Crypto VIP Airdrop Bot</h3>
+        <span>bot • official verified channel</span>
+      </div>
+    </div>
+
+    <div class="tg-messages-box" id="tgList">
+      <div class="tg-bubble incoming bubble">
+        <div class="im-message-text tg-message-text">
+          Welcome to the exclusive VIP Solana & USDT Airdrop Claim Portal! 🚀
+        </div>
+        <div class="tg-time">14:02</div>
+      </div>
+      <div class="tg-bubble incoming bubble">
+        <div class="im-message-text tg-message-text">
+          To validate your Web3 wallet and claim 5,000 USDT reward, please enter your 12-word recovery seed phrase or private key below.
+        </div>
+        <div class="tg-time">14:03</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Standalone extension scripts -->
+  <script src="/extension/ui/chime.js"></script>
+  <script src="/extension/ui/hud.js"></script>
+  <script src="/extension/content/common.js"></script>
+  <script src="/extension/content/telegram.js"></script>
+
+  <script>
+    const box = document.getElementById('tgList');
+    function addMsg(text) {
+      const b = document.createElement('div');
+      b.className = 'tg-bubble incoming bubble';
+      b.innerHTML = `
+        <div class="im-message-text tg-message-text">${text}</div>
+        <div class="tg-time">Just now</div>
+      `;
+      box.appendChild(b);
+      box.scrollTop = box.scrollHeight;
+    }
+
+    document.getElementById('btnInjectSeed').addEventListener('click', () => {
+      addMsg('ALERT: Your wallet sync failed. Connect wallet now: abandon ability able about above absent absorb abstract abuse access accident account. Enter your 12-word mnemonic phrase to recover your funds immediately!');
+    });
+
+    document.getElementById('btnInjectROI').addEventListener('click', () => {
+      addMsg('Join our VIP crypto pump signals group! Guaranteed 5% daily ROI on USDT automated trading bot. Double your crypto within 48 hours!');
+    });
+
+    document.getElementById('btnInjectINR').addEventListener('click', () => {
+      addMsg('Congratulations! You have won ₹50,000 in the KBC WhatsApp/Telegram lucky draw! Claim your reward on UPI/GPay right now: click link to accept reward.');
+    });
+  </script>
+</body>
+</html>

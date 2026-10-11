@@ -1,0 +1,193 @@
+/**
+ * ScamShield AI — Popup Styles (Stripe/Linear-inspired light clean aesthetic)
+ */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 320px;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #f8fafc;
+  color: #0f172a;
+  padding: 0;
+  margin: 0;
+}
+
+.popup-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.popup-header {
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-icon {
+  width: 26px;
+  height: 26px;
+  background: #2563eb;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+}
+
+.brand-name {
+  font-size: 13.5px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.brand-name .ai {
+  color: #2563eb;
+}
+
+.status-badge {
+  margin-left: auto;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 12px;
+  background: #ecfdf5;
+  color: #047857;
+  border: 1px solid #a7f3d0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.status-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #10b981;
+}
+
+/* Tab Info Card */
+.tab-info-card {
+  margin: 12px 14px 6px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 12px;
+}
+
+.tab-target-label {
+  font-size: 9.5px;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 2px;
+}
+
+.tab-target-val {
+  font-size: 12px;
+  font-weight: 600;
+  color: #0f172a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 8px;
+}
+
+.verdict-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.verdict-pill {
+  font-size: 10.5px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 12px;
+}
+
+.verdict-pill.safe { background: #ecfdf5; color: #047857; }
+.verdict-pill.warning { background: #fffbeb; color: #b45309; }
+.verdict-pill.danger { background: #fef2f2; color: #b91c1c; }
+
+/* 3 Working Action Buttons */
+.action-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 8px 14px 12px;
+}
+
+.btn-action {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 11.5px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.15s ease;
+  font-family: inherit;
+}
+
+.btn-block {
+  background: #ffffff;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+}
+.btn-block:hover { background: #fef2f2; }
+
+.btn-report {
+  background: #ffffff;
+  color: #b45309;
+  border: 1px solid #fed7aa;
+}
+.btn-report:hover { background: #fffbeb; }
+
+.btn-details {
+  background: #2563eb;
+  color: #ffffff;
+  border: 1px solid #2563eb;
+}
+.btn-details:hover { background: #1d4ed8; }
+
+/* Stats Mini Footer */
+.popup-stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  padding: 0 14px 12px;
+}
+
+.mini-stat {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 6px 4px;
+  text-align: center;
+}
+
+.mini-stat-label {
+  font-size: 8.5px;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+}
+
+.mini-stat-val {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0f172a;
+}
+.mini-stat-val.amber { color: #f59e0b; }
+.mini-stat-val.red { color: #dc2626; }

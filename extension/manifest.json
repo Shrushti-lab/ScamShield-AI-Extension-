@@ -1,0 +1,83 @@
+{
+  "manifest_version": 3,
+  "name": "ScamShield AI",
+  "version": "2.0.0",
+  "description": "Enterprise Real-Time Browser Scam & Threat Interception for Facebook, Telegram, and the Web.",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "alarms"
+  ],
+  "host_permissions": [
+    "*://*.facebook.com/*",
+    "*://*.messenger.com/*",
+    "*://web.telegram.org/*",
+    "http://127.0.0.1:8000/*",
+    "http://localhost:8000/*",
+    "https://*/*",
+    "http://*/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.facebook.com/*",
+        "*://*.messenger.com/*",
+        "http://127.0.0.1:8000/demo/fake_messenger.html*",
+        "http://127.0.0.1:8000/demo/fake_marketplace.html*"
+      ],
+      "js": [
+        "ui/chime.js",
+        "ui/hud.js",
+        "content/common.js",
+        "content/facebook.js",
+        "content/marketplace.js"
+      ],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "*://web.telegram.org/*",
+        "http://127.0.0.1:8000/demo/fake_telegram_k.html*",
+        "http://127.0.0.1:8000/demo/fake_telegram_a.html*"
+      ],
+      "js": [
+        "ui/chime.js",
+        "ui/hud.js",
+        "content/common.js",
+        "content/telegram.js"
+      ],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "https://*/*",
+        "http://*/*"
+      ],
+      "all_frames": true,
+      "js": [
+        "ui/chime.js",
+        "ui/hud.js",
+        "content/common.js",
+        "content/cardguard.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

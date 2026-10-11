@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ScamShield AI</title>
+  <link rel="stylesheet" href="popup/popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <div class="popup-header">
+      <div class="brand-icon">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+      </div>
+      <div class="brand-name">ScamShield <span class="ai">AI</span></div>
+      <div class="status-badge">
+        <span class="status-dot"></span> Active
+      </div>
+    </div>
+
+    <div class="tab-info-card">
+      <div class="tab-target-label">Current Page Target</div>
+      <div class="tab-target-val" id="popCurrentTarget">Loading active tab...</div>
+      <div class="verdict-row">
+        <span class="verdict-pill safe" id="popVerdictPill">Protection Active</span>
+        <span style="font-size:11px;color:#64748b;" id="popRiskScore">Score: 0/100</span>
+      </div>
+    </div>
+
+    <!-- 3 Working Action Buttons -->
+    <div class="action-grid">
+      <button class="btn-action btn-block" id="btnBlockSender">
+        <span>Block Current Sender</span>
+      </button>
+      <button class="btn-action btn-report" id="btnReportScam">
+        <span>Report Scam Incident</span>
+      </button>
+      <button class="btn-action btn-details" id="btnViewDetails">
+        <span>View Details in TrustLens →</span>
+      </button>
+    </div>
+
+    <div class="popup-stats-row">
+      <div class="mini-stat">
+        <div class="mini-stat-label">Checked</div>
+        <div class="mini-stat-val" id="miniChecked">—</div>
+      </div>
+      <div class="mini-stat">
+        <div class="mini-stat-label">Warnings</div>
+        <div class="mini-stat-val amber" id="miniWarnings">—</div>
+      </div>
+      <div class="mini-stat">
+        <div class="mini-stat-label">High Risk</div>
+        <div class="mini-stat-val red" id="miniHighRisk">—</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="popup/popup.js"></script>
+</body>
+</html>
