@@ -1,19 +1,19 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="ScamShield AI — Enterprise real-time browser security suite protecting against scams on Facebook, Telegram, and the web.">
-  <title>ScamShield AI — Protection Center</title>
+  <meta name="description" content="ScamShield AI â€” Enterprise real-time browser security suite protecting against scams on Facebook, Telegram, and the web.">
+  <title>ScamShield AI â€” Protection Center</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/static/css/styles.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232563eb'><path d='M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z'/></svg>">
 </head>
 <body>
 
-<!-- ═══ TOP NAVIGATION BAR ═════════════════════════════════ -->
+<!-- â•â•â• TOP NAVIGATION BAR â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <nav class="top-nav">
   <div class="nav-inner">
     <div class="nav-brand">
@@ -42,10 +42,10 @@
   </div>
 </nav>
 
-<!-- ═══ MAIN APPLICATION CONTAINER ════════════════════════ -->
+<!-- â•â•â• MAIN APPLICATION CONTAINER â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <div class="main-container">
 
-  <!-- ── 1. Protection Center Page ──────────────────────── -->
+  <!-- â”€â”€ 1. Protection Center Page â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
   <div class="page active" id="page-dashboard">
     <div class="hero">
       <h1>Your browsing, protected.</h1>
@@ -106,15 +106,15 @@
       </div>
       <div class="stat-card">
         <div class="stat-label">ITEMS CHECKED</div>
-        <div class="stat-value navy" id="stat-checked">—</div>
+        <div class="stat-value navy" id="stat-checked">â€”</div>
       </div>
       <div class="stat-card">
         <div class="stat-label">WARNINGS</div>
-        <div class="stat-value amber" id="stat-warnings">—</div>
+        <div class="stat-value amber" id="stat-warnings">â€”</div>
       </div>
       <div class="stat-card">
         <div class="stat-label">HIGH RISK</div>
-        <div class="stat-value red" id="stat-highrisk">—</div>
+        <div class="stat-value red" id="stat-highrisk">â€”</div>
       </div>
     </div>
 
@@ -122,7 +122,7 @@
     <div class="section-card" style="margin-bottom: 24px;">
       <div class="section-header">
         <span class="section-title">Recent Security Scans</span>
-        <button class="btn-outline-sm" id="btnViewAll">View All →</button>
+        <button class="btn-outline-sm" id="btnViewAll">View All â†’</button>
       </div>
       <div class="scan-list" id="recentScans">
         <div class="empty-state">Loading real-time scans...</div>
@@ -164,7 +164,7 @@
     </div>
   </div>
 
-  <!-- ── 2. Investigations Page ─────────────────────────── -->
+  <!-- â”€â”€ 2. Investigations Page â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
   <div class="page" id="page-investigations">
     <div class="hero">
       <h1>Investigations</h1>
@@ -188,14 +188,14 @@
     </div>
   </div>
 
-  <!-- ── 3. TrustLens Detail View (Explainable AI) ───────── -->
+  <!-- â”€â”€ 3. TrustLens Detail View (Explainable AI) â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
   <div class="page" id="page-trustlens">
     <div id="trustlensContent">
       <!-- Injected dynamically by app.js -->
     </div>
   </div>
 
-  <!-- ── 4. Reports Page ────────────────────────────────── -->
+  <!-- â”€â”€ 4. Reports Page â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
   <div class="page" id="page-reports">
     <div class="hero">
       <h1>Reports & Intelligence</h1>
@@ -242,7 +242,7 @@
         </div>
         <div style="margin-top: 16px; text-align: center;">
           <a href="/ml/artifacts/confusion_matrix.png" target="_blank" style="font-size: 12.5px; color: var(--blue); font-weight: 600; text-decoration: none;">
-            View High-Resolution Confusion Matrix Artifact (PNG) →
+            View High-Resolution Confusion Matrix Artifact (PNG) â†’
           </a>
         </div>
       </div>
@@ -276,7 +276,7 @@
           </select>
           <input type="text" id="reportNote" placeholder="Incident context and matched phrases..." style="padding:9px 12px; border:1px solid var(--border); border-radius:var(--radius-sm); font-family:var(--font); font-size:13px; color:var(--navy);">
         </div>
-        <button class="btn-trustlens" id="btnSubmitReport" style="padding:9px 24px; font-size:13px;">Submit Scam Report →</button>
+        <button class="btn-trustlens" id="btnSubmitReport" style="padding:9px 24px; font-size:13px;">Submit Scam Report â†’</button>
       </div>
     </div>
 
@@ -291,7 +291,7 @@
     </div>
   </div>
 
-  <!-- ── 5. Settings Page ───────────────────────────────── -->
+  <!-- â”€â”€ 5. Settings Page â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
   <div class="page" id="page-settings">
     <div class="hero">
       <h1>Settings & Security Preferences</h1>
@@ -365,7 +365,7 @@
       </div>
       <div style="padding: 18px 22px;">
         <div class="explanation-box" style="margin-bottom: 0;">
-          <strong>Zero-Access Security Architecture:</strong> ScamShield AI operates strictly locally on your self-hosted instance (<code>http://127.0.0.1:8000</code>). Passwords, session cookies, authentication tokens, and credit card numbers are <strong>never accessed, stored, or transmitted</strong>. CardGuard inspects solely DOM field attribute names (e.g. <code>autocomplete="cc-number"</code>) and domain reputation metrics — never user-entered keystrokes.
+          <strong>Zero-Access Security Architecture:</strong> ScamShield AI operates strictly locally on your self-hosted instance (<code>http://127.0.0.1:8000</code>). Passwords, session cookies, authentication tokens, and credit card numbers are <strong>never accessed, stored, or transmitted</strong>. CardGuard inspects solely DOM field attribute names (e.g. <code>autocomplete="cc-number"</code>) and domain reputation metrics â€” never user-entered keystrokes.
         </div>
       </div>
     </div>
@@ -373,15 +373,16 @@
 
 </div>
 
-<!-- ═══ FOOTER ════════════════════════════════════════════ -->
+<!-- â•â•â• FOOTER â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <footer class="footer">
   <div style="max-width: 1100px; margin: 0 auto;">
-    <strong>ScamShield AI v2.0</strong> — Enterprise Real-Time Browser Scam & Threat Interception<br>
+    <strong>ScamShield AI v2.0</strong> â€” Enterprise Real-Time Browser Scam & Threat Interception<br>
     Zero-Access Privacy Architecture: Passwords, session cookies, auth tokens, and card numbers are never collected.<br>
-    Self-Hosted SQLite Database on <code>127.0.0.1:8000</code> · Built with FastAPI, Inter Typography & Vanilla JavaScript
+    Self-Hosted SQLite Database on <code>127.0.0.1:8000</code> Â· Built with FastAPI, Inter Typography & Vanilla JavaScript
   </div>
 </footer>
 
-<script src="/js/app.js"></script>
+<script src="/static/js/app.js"></script>
 </body>
 </html>
+

@@ -1,11 +1,11 @@
-"""ScamShield AI – Database models and connection."""
+﻿"""ScamShield AI â€“ Database models and connection."""
 from __future__ import annotations
 import json, datetime, os
 from pathlib import Path
 from sqlalchemy import create_engine, Column, Integer, String, Float, Boolean, Text, DateTime
 from sqlalchemy.orm import declarative_base, sessionmaker
 
-DB_PATH = "scamshield.db"
+DB_PATH = "/tmp/scamshield.db" if os.name != "nt" else "scamshield.db"
 engine = create_engine(f"sqlite:///{DB_PATH}", connect_args={"check_same_thread": False})
 SessionLocal = sessionmaker(bind=engine, autoflush=False, autocommit=False)
 Base = declarative_base()
@@ -126,3 +126,4 @@ def init_db():
 
 # Auto-initialize DB schema on load
 init_db()
+

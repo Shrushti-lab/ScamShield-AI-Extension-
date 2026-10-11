@@ -1,12 +1,12 @@
-"""
-ScamShield AI — FastAPI Application
+﻿"""
+ScamShield AI -- FastAPI Application
 Serves the enterprise web portal + REST API for the Chrome extension.
 """
 from __future__ import annotations
 import json, os
 from pathlib import Path
 from contextlib import asynccontextmanager
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
@@ -44,7 +44,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Include routers
+# -- API Routers (registered BEFORE static mount) --
 app.include_router(scan_router)
 app.include_router(blocklist_router)
 app.include_router(reports_router)
@@ -52,7 +52,7 @@ app.include_router(stats_router)
 app.include_router(settings_router)
 
 
-# ── Model benchmark endpoint ──────────────────────────────────
+# -- Model benchmark endpoint --
 @app.get("/api/model/benchmark")
 async def get_benchmark():
     benchmark_path = Path(__file__).resolve().parent.parent / "ml" / "artifacts" / "benchmark.json"
@@ -64,14 +64,14 @@ async def get_benchmark():
     return {"error": "Benchmark not yet generated. Run train_model.py first."}
 
 
-# ── Reset seed data ───────────────────────────────────────────
+# -- Reset seed data --
 @app.post("/api/reset-demo-data")
 async def reset_demo():
     seed_demo_scans(force=True)
     return {"status": "reset", "message": "Demo data restored."}
 
 
-# ── Static portal serving ─────────────────────────────────────
+# -- Root: serve portal index.html --
 @app.get("/")
 async def serve_index():
     index = PORTAL_DIR / "index.html"
@@ -80,6 +80,7 @@ async def serve_index():
     return {"error": "Portal not found. Ensure portal/index.html exists."}
 
 
-# Mount static files (CSS, JS, etc.)
+# -- Static portal assets (CSS, JS) mounted at /static --
+# Mounted AFTER all API routes so nothing is shadowed.
 if PORTAL_DIR.exists():
-    app.mount("/", StaticFiles(directory=str(PORTAL_DIR), html=True), name="portal")
+    app.mount("/static", StaticFiles(directory=str(PORTAL_DIR)), name="portal_static")
